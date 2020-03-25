@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:View="clr-namespace:a1ExpressVol_1.View"
+             mc:Ignorable="d"
+             x:Class="a1ExpressVol_1.AppShell">
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Color x:Key="ThameColor">#FFFAF0</Color>
+            <Color x:Key="GrayColor">#7CFC00</Color>
+            <Color x:Key="BGColor">black</Color>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource BGColor}" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="{StaticResource ThameColor}" />
+                <Setter Property="Shell.TabBarUnselectedColor" Value="{StaticResource GrayColor}" />
+                <Setter Property="Shell.TabBarTitleColor" Value="{StaticResource ThameColor}" />
+            </Style>
+            <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}"/>
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <ContentView BackgroundColor="{StaticResource ThameColor}" HeightRequest="190">
+                <Image Source="e.png" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="100" HeightRequest="100"/>
+            </ContentView>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+
+    <FlyoutItem Title="HOME" Icon="j.png">
+        <Tab Title="Dashboard" Icon="a.png">
+            <ShellContent ContentTemplate="{DataTemplate View:DashboardPage}" />
+        </Tab>
+        <Tab Title="Favourite" Icon="b.png">
+            <ShellContent ContentTemplate="{DataTemplate View:FavouritePage}" />
+        </Tab>
+        <Tab Title="Profile" Icon="c.png">
+            <ShellContent ContentTemplate="{DataTemplate View:ProfilePage}" />
+        </Tab>
+        <Tab Title="LogIn" Icon="d.png">
+            <ShellContent ContentTemplate="{DataTemplate View:MorePage}" />
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Drivers" FlyoutDisplayOptions="AsMultipleItems">
+        <Tab Title="Driver" Icon="h.png">
+            
+            <ShellContent ContentTemplate="{DataTemplate View:DriverPage}" />
+        </Tab>
+        
+    </FlyoutItem>
+    <MenuItem Text="Others" IconImageSource="i.png" />
+</Shell>

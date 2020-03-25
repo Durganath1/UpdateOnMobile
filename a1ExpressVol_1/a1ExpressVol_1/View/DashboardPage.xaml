@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:a1ExpressVol_1"
+             mc:Ignorable="d"
+             x:Class="a1ExpressVol_1.View.DashboardPage">
+    <ContentPage.BindingContext>
+        <local:MainViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <Grid VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <Image Source="logo.png" Aspect="Fill" HeightRequest="80" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand"/>
+            
+            
+            
+            <Frame Grid.Row="2" HasShadow="True" CornerRadius="10" Margin="0,-20,0,0" Padding="10" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Opacity="0.9">
+                <Grid RowSpacing="30">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Label Text="Brandly Murrel,0433042468(649TT)" FontSize="20" HorizontalOptions="Center"/>
+                    <Frame BackgroundColor="#efefef" CornerRadius="8" Margin="0,30,0,30" HeightRequest="400">
+                        
+                        <ListView ItemsSource="{Binding Products}"
+                                  HasUnevenRows="True"
+                                  Margin="0,0" ItemTapped="ListView_ItemTapped">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout Padding="20" BackgroundColor="#1e88e5" Margin="0,5,0,0">
+
+
+                                            <Label Text="{Binding Name}" TextColor="White" FontSize="Large" HorizontalTextAlignment="Center" />
+
+
+
+
+                                            <StackLayout IsVisible="{Binding IsVisible}" Orientation="Horizontal" Margin="0,20,0,0">
+
+                                                <!--<Button Text="Detail" BackgroundColor="DarkGreen" TextColor="White" WidthRequest="100" FontSize="Small" />-->
+
+                                                <TableView HeightRequest="150" BackgroundColor="White" Margin="0,0,0,0" HorizontalOptions="CenterAndExpand">
+                                                    <TableRoot>
+                                                        <TableSection  Title="Job No 1-1:00PM" TextColor="Black">
+                                                            <TextCell Text="Car Detail" Detail="Toyata" ></TextCell>
+                                                            <TextCell Text="Location" Detail="Toyata" ></TextCell>
+                                                            <TextCell Text="Title" Detail="Toyata" ></TextCell>
+                                                            <TextCell Text="Action" Detail="Update Image" ></TextCell>
+                                                        </TableSection>
+                                                        
+                                                    </TableRoot>
+                                                </TableView>
+
+
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+
+                        </ListView>
+                                  
+                            
+                    </Frame>
+                </Grid>
+            </Frame>
+        </Grid>
+    </ScrollView>
+</ContentPage>
